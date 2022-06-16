@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">JetMVVMMovie</string>
+    <string name="app_title">Movie world</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="release_date">Release Date</string>
+    <string name="rating">Rating</string>
+    <string name="language">Language</string>
+    <string name="duration">Duration</string>
+    <string name="movie_detail">Movie detail</string>
+    <string name="similar">Similar</string>
+    <string name="cast">Cast</string>
+    <string name="screen_one">Screen one</string>
+    <string name="screen_two">Screen two</string>
+    <string name="open_drawer">Open drawer</string>
+    <string name="rating_search">Rating :</string>
+    <string name="yes">Yes</string>
+    <string name="do_you_want_to_exit_the_app">Do you want to exit the app?</string>
+    <string name="close_the_app">Close the app</string>
+    <string name="no">No</string>
+    <string name="there_is_no_internet">There is no internet!</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_password">Enter password</string>
+    <string name="login">Login</string>
+    <string name="artist_detail">Artist detail</string>
+    <string name="know_for">Known for</string>
+    <string name="biography">Biography</string>
+    <string name="gender">Gender</string>
+    <string name="birth_day">Birthday</string>
+    <string name="place_of_birth">Place of Birt</string>
+</resources>
