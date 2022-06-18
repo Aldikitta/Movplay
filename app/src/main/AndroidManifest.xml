@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.aldikitta.jetmvvmmovie">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,7 +17,7 @@
         android:theme="@style/Theme.JetMVVMMovie"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.screens.acitivity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.JetMVVMMovie">
