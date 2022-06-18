@@ -1,4 +1,4 @@
-package com.aldikitta.jetmvvmmovie.datasource.remote
+package com.aldikitta.jetmvvmmovie.data.datasource.remote
 
 object ApiURL {
     private const val API_KEY = "59cd6896d8432f9c69aed9b86b9c2931"

@@ -1,10 +1,10 @@
-package com.aldikitta.jetmvvmmovie.datasource.remote
+package com.aldikitta.jetmvvmmovie.data.datasource.remote
 
-import com.aldikitta.jetmvvmmovie.model.BaseModel
-import com.aldikitta.jetmvvmmovie.model.Genres
-import com.aldikitta.jetmvvmmovie.model.artist.Artist
-import com.aldikitta.jetmvvmmovie.model.artist.ArtistDetail
-import com.aldikitta.jetmvvmmovie.model.moviedetail.MovieDetail
+import com.aldikitta.jetmvvmmovie.data.model.BaseModel
+import com.aldikitta.jetmvvmmovie.data.model.Genres
+import com.aldikitta.jetmvvmmovie.data.model.artist.Artist
+import com.aldikitta.jetmvvmmovie.data.model.artist.ArtistDetail
+import com.aldikitta.jetmvvmmovie.data.model.moviedetail.MovieDetail
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

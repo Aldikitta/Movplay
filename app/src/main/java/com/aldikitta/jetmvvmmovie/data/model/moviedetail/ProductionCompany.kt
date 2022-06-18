@@ -1,4 +1,4 @@
-package com.aldikitta.jetmvvmmovie.model.moviedetail
+package com.aldikitta.jetmvvmmovie.data.model.moviedetail
 
 data class ProductionCompany(
     val id: Int,

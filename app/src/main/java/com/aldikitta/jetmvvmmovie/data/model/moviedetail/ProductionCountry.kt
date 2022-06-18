@@ -1,4 +1,4 @@
-package com.aldikitta.jetmvvmmovie.model.moviedetail
+package com.aldikitta.jetmvvmmovie.data.model.moviedetail
 
 data class ProductionCountry(
     val iso_3166_1: String,

@@ -1,4 +1,4 @@
-package com.aldikitta.jetmvvmmovie.model
+package com.aldikitta.jetmvvmmovie.data.model
 
 import com.google.gson.annotations.SerializedName
 
