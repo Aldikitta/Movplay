@@ -16,7 +16,7 @@ fun HomeAppBar(title: String, openDrawer: () -> Unit, openFilters: () -> Unit) {
         },
         navigationIcon = {
             IconButton(onClick = {
-                openDrawer
+                openDrawer()
             }) {
                 Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menu")
             }
