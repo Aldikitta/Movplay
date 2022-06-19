@@ -14,8 +14,8 @@ object RepositoryModule {
     /**
      * Provides RemoteDataRepository for access api service method
      */
-    @Singleton
     @Provides
+    @Singleton
     fun provideMovieRepository(
         apiService: ApiService,
     ): MovieRepository {

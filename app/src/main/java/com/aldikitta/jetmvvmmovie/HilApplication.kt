@@ -1,5 +1,6 @@
 package com.aldikitta.jetmvvmmovie
 
+import androidx.multidex.BuildConfig
 import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber

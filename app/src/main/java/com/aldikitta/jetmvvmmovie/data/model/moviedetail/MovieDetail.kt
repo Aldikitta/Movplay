@@ -1,6 +1,5 @@
 package com.aldikitta.jetmvvmmovie.data.model.moviedetail
 
-
 data class MovieDetail(
     val adult: Boolean,
     val backdrop_path: String,

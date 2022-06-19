@@ -23,12 +23,12 @@ class NowPlayingPagingDataSource @Inject constructor(private val apiService: Api
             LoadResult.Page(
                 data = movieList.results,
                 prevKey = if (nextPage == 1) null else nextPage - 1,
-                nextKey = if (movieList.results.isNotEmpty()) movieList.page + 1 else null
+                nextKey =  if (movieList.results.isNotEmpty()) movieList.page + 1 else  null
             )
-        }catch (exception: IOException){
+        } catch (exception: IOException) {
             Timber.e("exception ${exception.message}")
             return LoadResult.Error(exception)
-        }catch (httpException: HttpException){
+        } catch (httpException: HttpException) {
             Timber.e("httpException ${httpException.message}")
             return LoadResult.Error(httpException)
         }

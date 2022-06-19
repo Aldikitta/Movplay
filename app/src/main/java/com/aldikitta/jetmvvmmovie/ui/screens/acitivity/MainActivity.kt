@@ -11,7 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainScreen
 import com.aldikitta.jetmvvmmovie.ui.theme.JetMVVMMovieTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val splashViewModel: MainActivityViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {

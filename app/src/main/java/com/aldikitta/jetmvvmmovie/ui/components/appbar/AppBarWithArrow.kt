@@ -10,7 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun AppBarWithArrow(title: String?, pressOnBack: () -> Unit, openFilters: () -> Unit) {
+fun AppBarWithArrow(
+    title: String?,
+    pressOnBack: () -> Unit,
+    openFilters: () -> Unit) {
     SmallTopAppBar(
         title = {
             Text(text = title ?: "")

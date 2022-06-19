@@ -1,7 +1,7 @@
 package com.aldikitta.jetmvvmmovie.data.model
 
-import com.google.gson.annotations.SerializedName
 
+import com.google.gson.annotations.SerializedName
 
 data class MovieItem(
     @SerializedName("adult")
