@@ -25,8 +25,10 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             JetMVVMMovieTheme {
+            Surface(color = MaterialTheme.colorScheme.background) {
+                MainScreen()
 
-                    MainScreen()
+            }
 
             }
         }

@@ -15,6 +15,8 @@ import com.aldikitta.jetmvvmmovie.R
 import com.aldikitta.jetmvvmmovie.ui.screens.Login
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
+import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
+import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.upcoming.Upcoming
 
 
 @Composable
@@ -39,12 +41,12 @@ fun Navigation(
             )
         }
         composable(NavigationScreen.TOP_RATED) {
-            Login(
+            TopRated(
                 navController = navController
             )
         }
         composable(NavigationScreen.UP_COMING) {
-            Login(
+            Upcoming(
                 navController = navController
             )
         }
