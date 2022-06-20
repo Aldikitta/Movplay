@@ -26,6 +26,14 @@ sealed class NavigationItem(
             )
         }, "Home"
     )
+    object Login : NavigationItem(
+        NavigationScreen.LOGIN, {
+            Icon(
+                Icons.Filled.Home,
+                contentDescription = "Login",
+            )
+        }, "Login"
+    )
 
     object Popular : NavigationItem(
         NavigationScreen.POPULAR,

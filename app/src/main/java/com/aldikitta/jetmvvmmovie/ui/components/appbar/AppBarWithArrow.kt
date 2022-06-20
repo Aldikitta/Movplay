@@ -12,15 +12,17 @@ import androidx.compose.runtime.Composable
 @Composable
 fun AppBarWithArrow(
     title: String?,
-    pressOnBack: () -> Unit,
-    openFilters: () -> Unit) {
+    pressOnBack: () -> Unit
+)
+//    openFilters: () -> Unit)
+{
     SmallTopAppBar(
         title = {
             Text(text = title ?: "")
         },
         navigationIcon = {
             IconButton(onClick = {
-                pressOnBack
+                pressOnBack()
             }) {
                 Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back")
             }

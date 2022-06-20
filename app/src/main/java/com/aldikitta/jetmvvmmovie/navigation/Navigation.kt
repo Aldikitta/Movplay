@@ -14,6 +14,7 @@ import androidx.navigation.navArgument
 import com.aldikitta.jetmvvmmovie.R
 import com.aldikitta.jetmvvmmovie.ui.screens.Login
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
+import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
 
 
 @Composable
@@ -33,7 +34,7 @@ fun Navigation(
             )
         }
         composable(NavigationScreen.POPULAR) {
-            Login(
+            Popular(
                 navController = navController
             )
         }

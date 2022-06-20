@@ -69,10 +69,10 @@ fun MainScreen() {
         drawerContent = {
             if (genres is DataState.Success<Genres>) {
                 DrawerUI(navController, genres.data.genres) {
-                    genreName.value = it
                     scope.launch {
                         drawerState.close()
                     }
+                    genreName.value = it
                 }
             }
         }) {
@@ -80,6 +80,7 @@ fun MainScreen() {
             topBar = {
                 when (currentRoute(navController)) {
                     NavigationScreen.HOME,
+                    NavigationScreen.LOGIN,
                     NavigationScreen.POPULAR,
                     NavigationScreen.TOP_RATED,
                     NavigationScreen.UP_COMING,
@@ -107,16 +108,17 @@ fun MainScreen() {
                             SearchBar(isAppBarVisible, mainScreenViewModel)
                         }
                     }
-//                    else -> {
-//                        AppBarWithArrow(navigationTitle(navController)) {
-//                            navController.popBackStack()
-//                        }
-//                    }
+                    else -> {
+                        AppBarWithArrow(navigationTitle(navController)) {
+                            navController.popBackStack()
+                        }
+                    }
                 }
             },
             bottomBar = {
                 when (currentRoute(navController)) {
                     NavigationScreen.HOME,
+                    NavigationScreen.LOGIN,
                     NavigationScreen.POPULAR,
                     NavigationScreen.TOP_RATED,
                     NavigationScreen.UP_COMING -> {
@@ -147,6 +149,7 @@ fun BottomNavigationUI(navController: NavController) {
     NavigationBar() {
         val items = listOf(
             NavigationItem.Home,
+            NavigationItem.Login,
             NavigationItem.Popular,
             NavigationItem.TopRated,
             NavigationItem.UpComing
