@@ -17,6 +17,7 @@ import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.upcoming.Upcoming
+import com.aldikitta.jetmvvmmovie.ui.screens.moviedetail.MovieDetail
 
 
 @Composable
@@ -74,10 +75,10 @@ fun Navigation(
             val movieId =
                 it.arguments?.getInt(NavigationScreen.MovieDetail.MOVIE_ITEM)
             if (movieId != null) {
-//                MovieDetail(
-//                    navController = navController,
-//                    movieId
-//                )
+                MovieDetail(
+                    navController = navController,
+                    movieId
+                )
             }
             /*movieItem?.fromPrettyJson<MovieItem>()
                 ?.let { movieObject ->
