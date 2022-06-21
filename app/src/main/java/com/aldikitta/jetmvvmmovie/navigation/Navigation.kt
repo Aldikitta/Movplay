@@ -18,6 +18,7 @@ import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.upcoming.Upcoming
+import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreScreen
 import com.aldikitta.jetmvvmmovie.ui.screens.moviedetail.MovieDetail
 
 
@@ -60,10 +61,10 @@ fun Navigation(
         ) { backStack ->
             val genreId = backStack.arguments?.getString(NavigationScreen.GENRE_ID)
             genreId?.let {
-//                GenreScreen(
-//                    navController = navController,
-//                    genreId
-//                )
+                GenreScreen(
+                    navController = navController,
+                    genreId
+                )
             }
         }
         composable(
