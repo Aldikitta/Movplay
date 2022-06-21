@@ -7,9 +7,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -23,6 +25,7 @@ import com.aldikitta.jetmvvmmovie.navigation.currentRoute
 import com.aldikitta.jetmvvmmovie.navigation.navigationTitle
 import com.aldikitta.jetmvvmmovie.ui.components.CircularIndeterminateProgressBar
 import com.aldikitta.jetmvvmmovie.ui.components.NavigationItem
+import com.aldikitta.jetmvvmmovie.ui.components.SearchUI
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.AppBarWithArrow
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.HomeAppBar
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.SearchBar
@@ -102,7 +105,10 @@ fun MainScreen() {
                                 },
                                 openFilters = {
                                     isAppBarVisible.value = false
-                                }
+                                },
+//                                onSearchClick = {
+//                                    isAppBarVisible.value = false
+//                                }
                             )
                         } else {
                             SearchBar(isAppBarVisible, mainScreenViewModel)
@@ -111,6 +117,19 @@ fun MainScreen() {
                     else -> {
                         AppBarWithArrow(navigationTitle(navController)) {
                             navController.popBackStack()
+                        }
+                    }
+                }
+            },
+            floatingActionButton = {
+                when (currentRoute(navController)) {
+                    NavigationScreen.HOME, NavigationScreen.POPULAR, NavigationScreen.TOP_RATED, NavigationScreen.UP_COMING -> {
+                        FloatingActionButton(
+                            onClick = {
+                                isAppBarVisible.value = false
+                            },
+                        ) {
+                            Icon(Icons.Filled.Search, "", tint = Color.White)
                         }
                     }
                 }
@@ -131,9 +150,11 @@ fun MainScreen() {
                 Navigation(navController, modifier = Modifier)
                 Column {
                     CircularIndeterminateProgressBar(isDisplayed = searchProgressBar.value, verticalBias = 0.1f)
-//                    if (isAppBarVisible.value.not()){
-//                        SearchU
-//                    }
+                    if (isAppBarVisible.value.not()) {
+                        SearchUI(navController, mainScreenViewModel.searchData) {
+                            isAppBarVisible.value = true
+                        }
+                    }
                 }
             }
             mainScreenViewModel.searchData.pagingLoadingState {

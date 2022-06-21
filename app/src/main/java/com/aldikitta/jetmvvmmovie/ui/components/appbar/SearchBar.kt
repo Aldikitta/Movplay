@@ -35,11 +35,7 @@ fun SearchBar(isAppBarVisible: MutableState<Boolean>, viewModel: MainViewModel){
                 .fillMaxWidth()
                 .focusRequester(focusRequester),
             value = text,
-            colors = TextFieldDefaults.textFieldColors(
-                cursorColor = Color.Black,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
+
             onValueChange = {
                 text = it
                 viewModel.searchApi(it)
@@ -66,7 +62,6 @@ fun SearchBar(isAppBarVisible: MutableState<Boolean>, viewModel: MainViewModel){
                             .padding(end = 16.dp)
                             .offset(x = 10.dp)
                             .clickable {
-
                             }
                     )
                 }
