@@ -13,6 +13,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.aldikitta.jetmvvmmovie.R
 import com.aldikitta.jetmvvmmovie.ui.screens.Login
+import com.aldikitta.jetmvvmmovie.ui.screens.artistdetail.ArtistDetail
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
@@ -100,6 +101,21 @@ fun Navigation(
 //                ArtistDetail(
 //                    artistId
 //                )
+            }
+        }
+        composable(
+            NavigationScreen.ArtistDetail.ARTIST_DETAIL.plus(NavigationScreen.ArtistDetail.ARTIST_DETAIL_PATH),
+            arguments = listOf(navArgument(NavigationScreen.ArtistDetail.ARTIST_ID) {
+                type = NavType.IntType
+            })
+        ) {
+            label = stringResource(R.string.artist_detail)
+            val artistId =
+                it.arguments?.getInt(NavigationScreen.ArtistDetail.ARTIST_ID)
+            if (artistId != null) {
+                ArtistDetail(
+                    artistId
+                )
             }
         }
     }
