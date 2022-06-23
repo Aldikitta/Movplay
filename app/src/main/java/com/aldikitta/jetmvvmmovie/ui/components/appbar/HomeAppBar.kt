@@ -14,19 +14,19 @@ fun HomeAppBar(
     title: String,
     openDrawer: () -> Unit,
     openFilters: () -> Unit,
-//    onSearchClick: () -> Unit
+    onSearchClick: () -> Unit
 ) {
     SmallTopAppBar(
         title = {
             Text(text = title)
         },
-//        actions = {
-//            IconButton(
-//                onClick = { onSearchClick() },
-//            ) {
-//                Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
-//            }
-//        },
+        actions = {
+            IconButton(
+                onClick = { onSearchClick() },
+            ) {
+                Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
+            }
+        },
         navigationIcon = {
             IconButton(onClick = {
                 openDrawer()

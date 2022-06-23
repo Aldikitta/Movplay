@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import com.aldikitta.jetmvvmmovie.R
 import com.aldikitta.jetmvvmmovie.data.datasource.remote.ApiURL
 import com.aldikitta.jetmvvmmovie.data.model.BaseModel
@@ -34,15 +33,16 @@ fun SearchUI(
     itemClick: () -> Unit
 ) {
     Surface(
-        modifier = Modifier.heightIn(0.dp, 350.dp),
-        shape = RoundedCornerShape(bottomStart = 15.dp, bottomEnd = 15.dp)
+        modifier = Modifier.fillMaxSize()
+//        modifier = Modifier.heightIn(0.dp, 350.dp),
+//        shape = RoundedCornerShape(bottomStart = 15.dp, bottomEnd = 15.dp)
     ) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
 //                .padding(start = 10.dp, end = 10.dp)
 //                .clip(RoundedCornerShape(bottomStart = 15.dp, bottomEnd = 15.dp))
-                .padding(top = 8.dp)
+                .padding(top = 8.dp, start = 16.dp, end = 16.dp)
 
         ) {
             searchData.value?.let {
@@ -57,7 +57,8 @@ fun SearchUI(
                                         "/${item.id}"
                                     )
                                 )
-                            }) {
+                            }.fillMaxWidth()
+                        ) {
                             Image(
                                 painter = rememberAsyncImagePainter(
                                     ApiURL.IMAGE_URL.plus(
@@ -67,9 +68,9 @@ fun SearchUI(
                                 contentDescription = null,
                                 contentScale = ContentScale.Crop,
                                 modifier = Modifier
-                                    .height(60.dp)
-                                    .width(40.dp)
-                                // .clip(RoundedCornerShape(10.dp))
+                                    .height(80.dp)
+//                                    .width(40.dp)
+                                 .clip(RoundedCornerShape(10.dp))
                             )
                             Column {
                                 Text(

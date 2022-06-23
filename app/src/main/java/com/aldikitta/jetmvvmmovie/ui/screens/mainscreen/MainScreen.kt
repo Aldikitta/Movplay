@@ -34,13 +34,12 @@ import com.aldikitta.jetmvvmmovie.utils.network.DataState
 import com.aldikitta.jetmvvmmovie.utils.networkconnection.ConnectionState
 import com.aldikitta.jetmvvmmovie.utils.networkconnection.connectivityState
 import com.aldikitta.jetmvvmmovie.utils.pagingLoadingState
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalCoroutinesApi::class)
 @Composable
 fun MainScreen() {
-//    val mainScreenViewModel: MainViewModel by hiltViewModel()
-
     val mainScreenViewModel = hiltViewModel<MainViewModel>()
     val navController = rememberNavController()
     val scope = rememberCoroutineScope()
@@ -106,9 +105,9 @@ fun MainScreen() {
                                 openFilters = {
                                     isAppBarVisible.value = false
                                 },
-//                                onSearchClick = {
-//                                    isAppBarVisible.value = false
-//                                }
+                                onSearchClick = {
+                                    isAppBarVisible.value = false
+                                }
                             )
                         } else {
                             SearchBar(isAppBarVisible, mainScreenViewModel)
@@ -121,19 +120,19 @@ fun MainScreen() {
                     }
                 }
             },
-            floatingActionButton = {
-                when (currentRoute(navController)) {
-                    NavigationScreen.HOME, NavigationScreen.POPULAR, NavigationScreen.TOP_RATED, NavigationScreen.UP_COMING -> {
-                        FloatingActionButton(
-                            onClick = {
-                                isAppBarVisible.value = false
-                            },
-                        ) {
-                            Icon(Icons.Filled.Search, "", tint = Color.White)
-                        }
-                    }
-                }
-            },
+//            floatingActionButton = {
+//                when (currentRoute(navController)) {
+//                    NavigationScreen.HOME,NavigationScreen.LOGIN, NavigationScreen.POPULAR, NavigationScreen.TOP_RATED, NavigationScreen.UP_COMING -> {
+//                        FloatingActionButton(
+//                            onClick = {
+//                                isAppBarVisible.value = false
+//                            },
+//                        ) {
+//                            Icon(Icons.Filled.Search, "", tint = Color.White)
+//                        }
+//                    }
+//                }
+//            },
             bottomBar = {
                 when (currentRoute(navController)) {
                     NavigationScreen.HOME,

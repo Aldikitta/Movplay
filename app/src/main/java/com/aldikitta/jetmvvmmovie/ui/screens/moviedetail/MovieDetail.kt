@@ -169,7 +169,7 @@ fun RecommendedMovie(navController: NavController?, recommendedMovie: List<Movie
                         .width(140.dp)
                         .clickable {
                             navController?.navigate(
-                                NavigationScreen.ArtistDetail.ARTIST_DETAIL.plus(
+                                NavigationScreen.MovieDetail.MOVIE_DETAIL.plus(
                                     "/${item.id}"
                                 )
                             )

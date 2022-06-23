@@ -1,16 +1,11 @@
 package com.aldikitta.jetmvvmmovie.ui.components
 
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
+
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
+
 import com.aldikitta.jetmvvmmovie.navigation.NavigationScreen
 
 sealed class NavigationItem(
@@ -29,7 +24,7 @@ sealed class NavigationItem(
     object Login : NavigationItem(
         NavigationScreen.LOGIN, {
             Icon(
-                Icons.Filled.Home,
+                Icons.Filled.Search,
                 contentDescription = "Login",
             )
         }, "Login"
@@ -39,7 +34,7 @@ sealed class NavigationItem(
         NavigationScreen.POPULAR,
         {
             Icon(
-                Icons.Filled.Person,
+                Icons.Filled.TrendingUp,
                 contentDescription = "Popular",
             )
         },
@@ -50,7 +45,7 @@ sealed class NavigationItem(
         NavigationScreen.TOP_RATED,
         {
             Icon(
-                Icons.Filled.Settings,
+                Icons.Filled.Star,
                 contentDescription = "Top Rated"
             )
         },
@@ -61,7 +56,7 @@ sealed class NavigationItem(
         NavigationScreen.UP_COMING,
         {
             Icon(
-                Icons.Filled.Settings,
+                Icons.Filled.Upcoming,
                 contentDescription = "Up Coming"
             )
         },

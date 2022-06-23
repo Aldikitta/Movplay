@@ -7,11 +7,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Icon
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -20,10 +19,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 
+@OptIn(FlowPreview::class)
 @ExperimentalCoroutinesApi
 @Composable
-fun SearchBar(isAppBarVisible: MutableState<Boolean>, viewModel: MainViewModel){
+fun SearchBar(
+    isAppBarVisible: MutableState<Boolean>,
+    viewModel: MainViewModel
+) {
     var text by remember { mutableStateOf("") }
     val focusRequester = FocusRequester()
     BackHandler(isAppBarVisible.value.not()) {
@@ -35,7 +39,6 @@ fun SearchBar(isAppBarVisible: MutableState<Boolean>, viewModel: MainViewModel){
                 .fillMaxWidth()
                 .focusRequester(focusRequester),
             value = text,
-
             onValueChange = {
                 text = it
                 viewModel.searchApi(it)
@@ -44,28 +47,33 @@ fun SearchBar(isAppBarVisible: MutableState<Boolean>, viewModel: MainViewModel){
             singleLine = true,
             trailingIcon = {
                 if (text.trim().isNotEmpty()) {
-                    Icon(
-                        Icons.Filled.Clear,
-                        contentDescription = "clear text",
-                        modifier = Modifier
-                            .padding(end = 16.dp)
-                            .offset(x = 10.dp)
-                            .clickable {
-                                text = ""
-                            }
-                    )
+                    IconButton(onClick = {
+                        text = ""
+
+                    }) {
+                        Icon(Icons.Filled.Clear, contentDescription = "abort")
+
+                    }
                 } else {
-                    Icon(
-                        Icons.Filled.Search,
-                        contentDescription = "search",
-                        modifier = Modifier
-                            .padding(end = 16.dp)
-                            .offset(x = 10.dp)
-                            .clickable {
-                            }
-                    )
+                    IconButton(onClick = {
+                    }) {
+                        Icon(Icons.Filled.Search, contentDescription = "abort")
+
+                    }
                 }
-            }
+            },
+            placeholder = {
+                Text(text = "Search Movie")
+            },
+            leadingIcon = {
+                IconButton(onClick = {
+                    isAppBarVisible.value = true
+                }) {
+                    Icon(Icons.Filled.ArrowBack, contentDescription = "abort")
+
+                }
+            },
+            colors = TextFieldDefaults.textFieldColors(containerColor = MaterialTheme.colorScheme.background)
         )
         LaunchedEffect(Unit) {
             focusRequester.requestFocus()

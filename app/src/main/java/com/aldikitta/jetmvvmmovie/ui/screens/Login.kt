@@ -20,6 +20,9 @@ import androidx.navigation.NavController
 fun Login(navController: NavController) {
     val username = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
+    val isAppBarVisible = remember {
+        mutableStateOf(true)
+    }
     Column(
         modifier = Modifier.fillMaxHeight(),
         verticalArrangement = Arrangement.Center,
@@ -45,7 +48,7 @@ fun Login(navController: NavController) {
                 .fillMaxWidth()
                 .padding(10.dp)
         )
-        Button(modifier = Modifier.padding(10.dp), onClick = { /*TODO*/ }) {
+        Button(modifier = Modifier.padding(10.dp), onClick = {isAppBarVisible.value = false}) {
             Text(stringResource(com.aldikitta.jetmvvmmovie.R.string.login))
         }
     }

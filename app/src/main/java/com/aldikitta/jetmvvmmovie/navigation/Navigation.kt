@@ -1,6 +1,7 @@
 package com.aldikitta.jetmvvmmovie.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -12,20 +13,27 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.aldikitta.jetmvvmmovie.R
+import com.aldikitta.jetmvvmmovie.data.model.BaseModel
+import com.aldikitta.jetmvvmmovie.data.model.moviedetail.Genre
+import com.aldikitta.jetmvvmmovie.ui.components.SearchUI
+import com.aldikitta.jetmvvmmovie.ui.components.appbar.SearchBar
 import com.aldikitta.jetmvvmmovie.ui.screens.Login
 import com.aldikitta.jetmvvmmovie.ui.screens.artistdetail.ArtistDetail
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.upcoming.Upcoming
+import com.aldikitta.jetmvvmmovie.ui.screens.drawer.DrawerUI
 import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreScreen
+import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainViewModel
 import com.aldikitta.jetmvvmmovie.ui.screens.moviedetail.MovieDetail
+import com.aldikitta.jetmvvmmovie.utils.network.DataState
 
 
 @Composable
 fun Navigation(
     navController: NavHostController,
-    modifier: Modifier
+    modifier: Modifier,
 ) {
     NavHost(navController, startDestination = "home", modifier) {
         composable(NavigationScreen.HOME) {
@@ -35,7 +43,7 @@ fun Navigation(
         }
         composable(NavigationScreen.LOGIN) {
             Login(
-                navController = navController
+                navController = navController,
             )
         }
         composable(NavigationScreen.POPULAR) {
@@ -88,21 +96,6 @@ fun Navigation(
                         movieObject
                     )
                 }*/
-        }
-        composable(
-            NavigationScreen.ArtistDetail.ARTIST_DETAIL.plus(NavigationScreen.ArtistDetail.ARTIST_DETAIL_PATH),
-            arguments = listOf(navArgument(NavigationScreen.ArtistDetail.ARTIST_ID) {
-                type = NavType.IntType
-            })
-        ) {
-            label = stringResource(R.string.artist_detail)
-            val artistId =
-                it.arguments?.getInt(NavigationScreen.ArtistDetail.ARTIST_ID)
-            if (artistId != null) {
-//                ArtistDetail(
-//                    artistId
-//                )
-            }
         }
         composable(
             NavigationScreen.ArtistDetail.ARTIST_DETAIL.plus(NavigationScreen.ArtistDetail.ARTIST_DETAIL_PATH),

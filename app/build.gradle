@@ -76,7 +76,7 @@ dependencies {
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
 
     // Timber log
     implementation 'com.jakewharton.timber:timber:5.0.1'
@@ -90,5 +90,7 @@ dependencies {
 
     // splash screen
     implementation "androidx.core:core-splashscreen:1.0.0-rc01"
+
+    implementation 'androidx.compose.material:material-icons-extended:1.1.1'
 }
 
