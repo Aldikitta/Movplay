@@ -25,6 +25,7 @@ import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.upcoming.Upcoming
 import com.aldikitta.jetmvvmmovie.ui.screens.drawer.DrawerUI
 import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreScreen
+import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreTestingScreen
 import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainViewModel
 import com.aldikitta.jetmvvmmovie.ui.screens.moviedetail.MovieDetail
 import com.aldikitta.jetmvvmmovie.utils.network.DataState
@@ -42,7 +43,7 @@ fun Navigation(
             )
         }
         composable(NavigationScreen.LOGIN) {
-            Login(
+            GenreTestingScreen(
                 navController = navController,
             )
         }

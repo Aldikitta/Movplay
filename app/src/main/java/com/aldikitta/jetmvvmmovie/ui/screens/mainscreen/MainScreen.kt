@@ -74,6 +74,7 @@ fun MainScreen() {
                     scope.launch {
                         drawerState.close()
                     }
+                    //title in appbar
                     genreName.value = it
                 }
             }
