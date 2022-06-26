@@ -4,10 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainScreen
 import com.aldikitta.jetmvvmmovie.ui.theme.JetMVVMMovieTheme
@@ -25,11 +21,7 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             JetMVVMMovieTheme {
-            Surface(color = MaterialTheme.colorScheme.background) {
-                MainScreen()
-
-            }
-
+                    MainScreen()
             }
         }
     }

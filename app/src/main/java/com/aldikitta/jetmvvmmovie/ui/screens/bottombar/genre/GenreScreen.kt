@@ -1,4 +1,4 @@
-package com.aldikitta.jetmvvmmovie.ui.screens.genre
+package com.aldikitta.jetmvvmmovie.ui.screens.bottombar.genre
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel

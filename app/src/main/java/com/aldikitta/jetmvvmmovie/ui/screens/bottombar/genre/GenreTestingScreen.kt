@@ -1,19 +1,12 @@
-package com.aldikitta.jetmvvmmovie.ui.screens.genre
+package com.aldikitta.jetmvvmmovie.ui.screens.bottombar.genre
 
-import android.util.Log
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,26 +16,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import coil.compose.rememberAsyncImagePainter
-import com.aldikitta.jetmvvmmovie.data.datasource.remote.ApiURL
 import com.aldikitta.jetmvvmmovie.data.model.Genres
-import com.aldikitta.jetmvvmmovie.data.model.MovieItem
 import com.aldikitta.jetmvvmmovie.data.model.moviedetail.Genre
 import com.aldikitta.jetmvvmmovie.navigation.NavigationScreen
-import com.aldikitta.jetmvvmmovie.ui.components.HomeScreen
-import com.aldikitta.jetmvvmmovie.ui.components.MovieItemView
-import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlayingViewModel
-import com.aldikitta.jetmvvmmovie.utils.items
 import com.aldikitta.jetmvvmmovie.utils.network.DataState
 
 @Composable

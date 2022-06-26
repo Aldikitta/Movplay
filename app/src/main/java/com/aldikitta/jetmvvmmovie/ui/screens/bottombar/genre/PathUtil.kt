@@ -1,4 +1,4 @@
-package com.aldikitta.jetmvvmmovie.ui.screens.genre
+package com.aldikitta.jetmvvmmovie.ui.screens.bottombar.genre
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Path

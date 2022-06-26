@@ -1,4 +1,4 @@
-package com.aldikitta.jetmvvmmovie.ui.screens.profile
+package com.aldikitta.jetmvvmmovie.ui.screens.drawer.draweritems.profile
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions

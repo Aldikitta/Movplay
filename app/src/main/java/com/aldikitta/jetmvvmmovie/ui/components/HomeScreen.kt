@@ -48,8 +48,8 @@ fun HomeScreen(
         //login screen
         openDialog.value = true
     }
-    Column() {
-        Column() {
+    Column {
+        Column {
             CircularIndeterminateProgressBar(isDisplayed = progressBar.value, verticalBias = 0.4f)
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),

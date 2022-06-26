@@ -30,8 +30,6 @@ import com.aldikitta.jetmvvmmovie.ui.components.appbar.AppBarWithArrow
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.HomeAppBar
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.SearchBar
 import com.aldikitta.jetmvvmmovie.ui.screens.drawer.DrawerCopy
-import com.aldikitta.jetmvvmmovie.ui.screens.drawer.DrawerUI
-import com.aldikitta.jetmvvmmovie.utils.network.DataState
 import com.aldikitta.jetmvvmmovie.utils.networkconnection.ConnectionState
 import com.aldikitta.jetmvvmmovie.utils.networkconnection.connectivityState
 import com.aldikitta.jetmvvmmovie.utils.pagingLoadingState
@@ -77,7 +75,9 @@ fun MainScreen() {
                 scope.launch {
                     drawerState.close()
                 }
-//                navItemName.value = it
+                navController.navigate(it) {
+                    launchSingleTop = true
+                }
                 navItemName.value = it
             }
 //            if (genres is DataState.Success<Genres>) {

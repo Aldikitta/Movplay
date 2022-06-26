@@ -25,9 +25,9 @@ sealed class NavigationItem(
         NavigationScreen.LOGIN, {
             Icon(
                 Icons.Filled.Search,
-                contentDescription = "Login",
+                contentDescription = "Genre",
             )
-        }, "Login"
+        }, "Genre"
     )
 
     object Popular : NavigationItem(

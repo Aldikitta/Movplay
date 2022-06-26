@@ -16,12 +16,13 @@ import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.upcoming.Upcoming
-import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreScreen
-import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreTestingScreen
-import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainViewModel
+import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.genre.GenreScreen
+import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.genre.GenreTestingScreen
+import com.aldikitta.jetmvvmmovie.ui.screens.drawer.draweritems.help.Help
+import com.aldikitta.jetmvvmmovie.ui.screens.drawer.draweritems.preferences.Preferences
 import com.aldikitta.jetmvvmmovie.ui.screens.moviedetail.MovieDetail
-import com.aldikitta.jetmvvmmovie.ui.screens.profile.ProfileScreen
-import com.aldikitta.jetmvvmmovie.utils.network.DataState
+import com.aldikitta.jetmvvmmovie.ui.screens.drawer.draweritems.profile.ProfileScreen
+import com.aldikitta.jetmvvmmovie.ui.screens.drawer.draweritems.settings.Settings
 
 
 @Composable
@@ -61,8 +62,23 @@ fun Navigation(
                 navController = navController
             )
         }
-        composable(NavigationScreen.NavItem.PROFILE){
+        composable(DrawerItem.Profile.route){
             ProfileScreen(
+                navController = navController
+            )
+        }
+        composable(DrawerItem.Help.route){
+            Help(
+                navController = navController
+            )
+        }
+        composable(DrawerItem.Preferences.route){
+            Preferences(
+                navController = navController
+            )
+        }
+        composable(DrawerItem.Settings.route){
+            Settings(
                 navController = navController
             )
         }
@@ -123,7 +139,10 @@ fun Navigation(
 @Composable
 fun navigationTitle(navController: NavController): String {
     return when (currentRoute(navController)) {
-        NavigationScreen.NavItem.PROFILE -> "Profile"
+        DrawerItem.Profile.route -> "Profile"
+        DrawerItem.Settings.route -> "Settings"
+        DrawerItem.Preferences.route -> "Preferences"
+        DrawerItem.Help.route -> "Help"
         NavigationScreen.MovieDetail.MOVIE_DETAIL -> stringResource(id = R.string.movie_detail)
         NavigationScreen.ArtistDetail.ARTIST_DETAIL -> stringResource(id = R.string.artist_detail)
         NavigationScreen.LOGIN -> stringResource(id = R.string.login)
