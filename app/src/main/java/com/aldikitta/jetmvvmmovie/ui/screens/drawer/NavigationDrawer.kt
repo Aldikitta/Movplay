@@ -33,12 +33,13 @@ fun DrawerUI(
                 selected = item == selectedItem.value,
 //                selected = currentRoute(navController) == "",
                 onItemClick = {
-                    navController.navigate(NavigationScreen.NAVIGATION_DRAWER.plus("/${it.id}")) {
+                    navController.navigate(NavigationScreen.NAVIGATION_GENRE.plus("/${it.id}")) {
                         launchSingleTop = true
                     }
                     selectedItem.value = item
                     closeDrawer(it.name)
-                })
+                }
+            )
         }
     }
 }

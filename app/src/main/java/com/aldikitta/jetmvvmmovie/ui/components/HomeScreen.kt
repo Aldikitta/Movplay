@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -76,12 +78,13 @@ fun HomeScreen(
 
 @Composable
 fun MovieItemView(item: MovieItem, navController: NavController) {
-    Column(modifier = Modifier.padding(5.dp)) {
+    Column(modifier = Modifier.padding(7.5.dp)) {
         Image(painter = rememberAsyncImagePainter(ApiURL.IMAGE_URL.plus(item.posterPath)),
             contentDescription = "movieItemView",
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(250.dp)
+                .clip(MaterialTheme.shapes.large)
                 .clickable {
                     navController.navigate(NavigationScreen.MovieDetail.MOVIE_DETAIL.plus("/${item.id}"))
                 }

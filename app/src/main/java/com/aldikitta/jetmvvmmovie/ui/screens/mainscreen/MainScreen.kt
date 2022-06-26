@@ -29,6 +29,7 @@ import com.aldikitta.jetmvvmmovie.ui.components.SearchUI
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.AppBarWithArrow
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.HomeAppBar
 import com.aldikitta.jetmvvmmovie.ui.components.appbar.SearchBar
+import com.aldikitta.jetmvvmmovie.ui.screens.drawer.DrawerCopy
 import com.aldikitta.jetmvvmmovie.ui.screens.drawer.DrawerUI
 import com.aldikitta.jetmvvmmovie.utils.network.DataState
 import com.aldikitta.jetmvvmmovie.utils.networkconnection.ConnectionState
@@ -52,6 +53,9 @@ fun MainScreen() {
     val genreName = remember {
         mutableStateOf("")
     }
+    val navItemName = remember {
+        mutableStateOf("")
+    }
     //genre list for navigation drawer
     val genres = mainScreenViewModel.genres.value
     //internet connection
@@ -69,15 +73,22 @@ fun MainScreen() {
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            if (genres is DataState.Success<Genres>) {
-                DrawerUI(navController, genres.data.genres) {
-                    scope.launch {
-                        drawerState.close()
-                    }
-                    //title in appbar
-                    genreName.value = it
+            DrawerCopy(navController) {
+                scope.launch {
+                    drawerState.close()
                 }
+//                navItemName.value = it
+                navItemName.value = it
             }
+//            if (genres is DataState.Success<Genres>) {
+//                DrawerUI(navController, genres.data.genres) {
+//                    scope.launch {
+//                        drawerState.close()
+//                    }
+//                    //title in appbar
+//                    genreName.value = it
+//                }
+//            }
         }) {
         Scaffold(
             topBar = {
@@ -86,14 +97,22 @@ fun MainScreen() {
                     NavigationScreen.LOGIN,
                     NavigationScreen.POPULAR,
                     NavigationScreen.TOP_RATED,
-                    NavigationScreen.UP_COMING,
-                    NavigationScreen.NAVIGATION_DRAWER -> {
+                    NavigationScreen.UP_COMING
+                    -> {
                         if (isAppBarVisible.value) {
                             val appTitle: String =
-                                if (currentRoute(navController) == NavigationScreen.NAVIGATION_DRAWER)
-                                    genreName.value
-                                else
-                                    stringResource(R.string.app_title)
+                                if (currentRoute(navController) == NavigationScreen.LOGIN) {
+                                    "Genre"
+                                } else if (currentRoute(navController) == NavigationScreen.POPULAR) {
+                                    "Popular"
+                                } else if (currentRoute(navController) == NavigationScreen.TOP_RATED) {
+                                    "Top Rated"
+                                } else if (currentRoute(navController) == NavigationScreen.UP_COMING) {
+                                    "Up Coming"
+                                } else if (currentRoute(navController) == NavigationScreen.HOME) {
+                                    "Explore"
+                                } else
+                                    ""
                             HomeAppBar(
                                 title = appTitle,
                                 openDrawer = {
@@ -149,7 +168,10 @@ fun MainScreen() {
             Box(modifier = Modifier.padding(innerPadding)) {
                 Navigation(navController, modifier = Modifier)
                 Column {
-                    CircularIndeterminateProgressBar(isDisplayed = searchProgressBar.value, verticalBias = 0.1f)
+                    CircularIndeterminateProgressBar(
+                        isDisplayed = searchProgressBar.value,
+                        verticalBias = 0.1f
+                    )
                     if (isAppBarVisible.value.not()) {
                         SearchUI(navController, mainScreenViewModel.searchData) {
                             isAppBarVisible.value = true

@@ -1,8 +1,6 @@
 package com.aldikitta.jetmvvmmovie.navigation
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
@@ -13,21 +11,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.aldikitta.jetmvvmmovie.R
-import com.aldikitta.jetmvvmmovie.data.model.BaseModel
-import com.aldikitta.jetmvvmmovie.data.model.moviedetail.Genre
-import com.aldikitta.jetmvvmmovie.ui.components.SearchUI
-import com.aldikitta.jetmvvmmovie.ui.components.appbar.SearchBar
-import com.aldikitta.jetmvvmmovie.ui.screens.Login
 import com.aldikitta.jetmvvmmovie.ui.screens.artistdetail.ArtistDetail
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.nowplaying.NowPlaying
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.popular.Popular
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.toprated.TopRated
 import com.aldikitta.jetmvvmmovie.ui.screens.bottombar.upcoming.Upcoming
-import com.aldikitta.jetmvvmmovie.ui.screens.drawer.DrawerUI
 import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreScreen
 import com.aldikitta.jetmvvmmovie.ui.screens.genre.GenreTestingScreen
 import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainViewModel
 import com.aldikitta.jetmvvmmovie.ui.screens.moviedetail.MovieDetail
+import com.aldikitta.jetmvvmmovie.ui.screens.profile.ProfileScreen
 import com.aldikitta.jetmvvmmovie.utils.network.DataState
 
 
@@ -36,6 +29,10 @@ fun Navigation(
     navController: NavHostController,
     modifier: Modifier,
 ) {
+    val genreName = remember {
+        mutableStateOf("")
+    }
+
     NavHost(navController, startDestination = "home", modifier) {
         composable(NavigationScreen.HOME) {
             NowPlaying(
@@ -45,7 +42,9 @@ fun Navigation(
         composable(NavigationScreen.LOGIN) {
             GenreTestingScreen(
                 navController = navController,
-            )
+            ){
+                genreName.value = it
+            }
         }
         composable(NavigationScreen.POPULAR) {
             Popular(
@@ -62,8 +61,13 @@ fun Navigation(
                 navController = navController
             )
         }
+        composable(NavigationScreen.NavItem.PROFILE){
+            ProfileScreen(
+                navController = navController
+            )
+        }
         composable(
-            NavigationScreen.NAVIGATION_DRAWER_WITH_GENRE_ID,
+            NavigationScreen.NAVIGATION_GENRE_WITH_GENRE_ID,
             arguments = listOf(navArgument(NavigationScreen.GENRE_ID) {
                 type = NavType.StringType
             })
@@ -119,6 +123,7 @@ fun Navigation(
 @Composable
 fun navigationTitle(navController: NavController): String {
     return when (currentRoute(navController)) {
+        NavigationScreen.NavItem.PROFILE -> "Profile"
         NavigationScreen.MovieDetail.MOVIE_DETAIL -> stringResource(id = R.string.movie_detail)
         NavigationScreen.ArtistDetail.ARTIST_DETAIL -> stringResource(id = R.string.artist_detail)
         NavigationScreen.LOGIN -> stringResource(id = R.string.login)
