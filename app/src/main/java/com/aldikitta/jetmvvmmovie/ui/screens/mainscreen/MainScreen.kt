@@ -1,24 +1,16 @@
 package com.aldikitta.jetmvvmmovie.ui.screens.mainscreen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Face
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.aldikitta.jetmvvmmovie.R
-import com.aldikitta.jetmvvmmovie.data.model.Genres
-import com.aldikitta.jetmvvmmovie.data.model.moviedetail.Genre
 import com.aldikitta.jetmvvmmovie.navigation.Navigation
 import com.aldikitta.jetmvvmmovie.navigation.NavigationScreen
 import com.aldikitta.jetmvvmmovie.navigation.currentRoute
@@ -48,20 +40,13 @@ fun MainScreen() {
     val searchProgressBar = remember {
         mutableStateOf(false)
     }
-    val genreName = remember {
-        mutableStateOf("")
-    }
     val navItemName = remember {
         mutableStateOf("")
     }
-    //genre list for navigation drawer
-    val genres = mainScreenViewModel.genres.value
     //internet connection
     val connection by connectivityState()
     val isConnected = connection === ConnectionState.Available
     val drawerState = rememberDrawerState(DrawerValue.Closed)
-    val items = listOf(Icons.Default.Favorite, Icons.Default.Face, Icons.Default.Email)
-    val itemsDrawer = listOf<Genre>()
 
     //genre api call for first time
     LaunchedEffect(true) {
@@ -100,21 +85,20 @@ fun MainScreen() {
                     NavigationScreen.UP_COMING
                     -> {
                         if (isAppBarVisible.value) {
-                            val appTitle: String =
-                                if (currentRoute(navController) == NavigationScreen.LOGIN) {
-                                    "Genre"
-                                } else if (currentRoute(navController) == NavigationScreen.POPULAR) {
-                                    "Popular"
-                                } else if (currentRoute(navController) == NavigationScreen.TOP_RATED) {
-                                    "Top Rated"
-                                } else if (currentRoute(navController) == NavigationScreen.UP_COMING) {
-                                    "Up Coming"
-                                } else if (currentRoute(navController) == NavigationScreen.HOME) {
-                                    "Explore"
-                                } else
-                                    ""
+//                            val appTitle: String =
+//                                if (currentRoute(navController) == NavigationScreen.LOGIN) {
+//                                    "Genre"
+//                                } else if (currentRoute(navController) == NavigationScreen.POPULAR) {
+//                                    "Popular"
+//                                } else if (currentRoute(navController) == NavigationScreen.TOP_RATED) {
+//                                    "Top Rated"
+//                                } else if (currentRoute(navController) == NavigationScreen.UP_COMING) {
+//                                    "Up Coming"
+//                                } else if (currentRoute(navController) == NavigationScreen.HOME) {
+//                                    "Explore"
+//                                } else
+//                                    ""
                             HomeAppBar(
-                                title = appTitle,
                                 openDrawer = {
                                     scope.launch {
                                         drawerState.apply {
@@ -189,7 +173,7 @@ fun MainScreen() {
 
 @Composable
 fun BottomNavigationUI(navController: NavController) {
-    NavigationBar() {
+    NavigationBar {
         val items = listOf(
             NavigationItem.Home,
             NavigationItem.Login,
@@ -213,9 +197,9 @@ fun BottomNavigationUI(navController: NavController) {
                             }
                         }
                         // Avoid multiple copies of the same destination when
-                        // reselecting the same item
+                        // reelecting the same item
                         launchSingleTop = true
-                        // Restore state when reselecting a previously selected item
+                        // Restore state when reelecting a previously selected item
                         restoreState = true
                     }
                 },

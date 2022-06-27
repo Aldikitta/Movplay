@@ -71,20 +71,6 @@ fun CallLazyCall(
             }
         }
         )
-
-
-//    LazyColumn() {
-//        items(items = genres) { item ->
-//            LazyCall(item = item, onItemClick = {
-//                navController.navigate(NavigationScreen.NAVIGATION_GENRE.plus("/${it.id}")) {
-//                    launchSingleTop = true
-//                    closeDrawer(it.name)
-//                }
-////                closeDrawer(it.name)
-//            }
-//            )
-//        }
-//    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -168,24 +154,7 @@ fun LazyCall(item: Genre, onItemClick: (Genre) -> Unit
 
         }
     }
-//    Card(modifier = Modifier.padding(16.dp)) {
-//        Text(text = item.name, Modifier.clickable { onItemClick(item) })
-//    }
 }
 
-//@Composable
-//fun MovieItemView(item: Genre, onItemClick: (Genre) -> Unit) {
-//    Column(modifier = Modifier.padding(5.dp)) {
-//        Image(painter = rememberAsyncImagePainter(ApiURL.IMAGE_URL.plus(item.posterPath)),
-//            contentDescription = "movieItemView",
-//            contentScale = ContentScale.Crop,
-//            modifier = Modifier
-//                .size(250.dp)
-//                .clickable {
-//                    navController.navigate(NavigationScreen.MovieDetail.MOVIE_DETAIL.plus("/${item.id}"))
-//                }
-//        )
-//    }
-//}
 
 
