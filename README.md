@@ -1,4 +1,4 @@
-<p align="center"><img src="screenshots/muviz.png" alt="StarWars" height="150px"></p>
+<p align="center"><img src="screenshots/movColored.png" alt="Movplay" height="150px"></p>
 
 # Movplay
 An Android app built with Jetpack Compose consuming [TMDB API](https://www.themoviedb.org/documentation/api) to help movies to have current information of the trending, popular, upcoming many other films.
