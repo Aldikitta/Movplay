@@ -43,7 +43,7 @@ fun GenreTestingScreen(
         genreTestingScreenViewModel.genreListTestingScreen()
     }
     if (genres is DataState.Success<Genres>) {
-        CallLazyCall(genres.data.genres, navController){
+        CallLazyCall(genres.data.genres, navController) {
             genreName.value = it
         }
     }
@@ -70,12 +70,12 @@ fun CallLazyCall(
                 })
             }
         }
-        )
+    )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LazyCall(item: Genre, onItemClick: (Genre) -> Unit
+fun LazyCall(
+    item: Genre, onItemClick: (Genre) -> Unit
 ) {
     BoxWithConstraints(
         modifier = Modifier

@@ -81,17 +81,17 @@ fun connectivityState(): State<ConnectionState> {
     }
 }
 
-/*
-@Composable
-fun ConnectivityStatus() {
-    // This will cause re-composition on every network state change
-    val connection by connectivityState()
 
-    val isConnected = connection === ConnectionState.Available
-
-    if (isConnected) {
-        // Show UI when connectivity is available
-    } else {
-        // Show UI for No Internet Connectivity
-    }
-}*/
+//@Composable
+//fun ConnectivityStatus() {
+//    // This will cause re-composition on every network state change
+//    val connection by connectivityState()
+//
+//    val isConnected = connection === ConnectionState.Available
+//
+//    if (isConnected) {
+//        // Show UI when connectivity is available
+//    } else {
+//        // Show UI for No Internet Connectivity
+//    }
+//}

@@ -49,7 +49,7 @@ fun ProfileScreen(navController: NavController) {
                 .fillMaxWidth()
                 .padding(10.dp)
         )
-        Button(modifier = Modifier.padding(10.dp), onClick = {isAppBarVisible.value = false}) {
+        Button(modifier = Modifier.padding(10.dp), onClick = { isAppBarVisible.value = false }) {
             Text(stringResource(R.string.login))
         }
     }

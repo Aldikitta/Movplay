@@ -1,13 +1,11 @@
 package com.aldikitta.jetmvvmmovie.ui.screens.mainscreen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -65,16 +63,8 @@ fun MainScreen() {
                 }
                 navItemName.value = it
             }
-//            if (genres is DataState.Success<Genres>) {
-//                DrawerUI(navController, genres.data.genres) {
-//                    scope.launch {
-//                        drawerState.close()
-//                    }
-//                    //title in appbar
-//                    genreName.value = it
-//                }
-//            }
-        }) {
+        }
+    ) {
         Scaffold(
             topBar = {
                 when (currentRoute(navController)) {
@@ -124,19 +114,6 @@ fun MainScreen() {
                     }
                 }
             },
-//            floatingActionButton = {
-//                when (currentRoute(navController)) {
-//                    NavigationScreen.HOME,NavigationScreen.LOGIN, NavigationScreen.POPULAR, NavigationScreen.TOP_RATED, NavigationScreen.UP_COMING -> {
-//                        FloatingActionButton(
-//                            onClick = {
-//                                isAppBarVisible.value = false
-//                            },
-//                        ) {
-//                            Icon(Icons.Filled.Search, "", tint = Color.White)
-//                        }
-//                    }
-//                }
-//            },
             bottomBar = {
                 when (currentRoute(navController)) {
                     NavigationScreen.HOME,

@@ -8,6 +8,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class NowPlayingViewModel @Inject constructor(movieRepository: MovieRepository): ViewModel() {
+class NowPlayingViewModel @Inject constructor(movieRepository: MovieRepository) : ViewModel() {
     val popularMovies = movieRepository.popularPagingDataSource().cachedIn(viewModelScope)
 }

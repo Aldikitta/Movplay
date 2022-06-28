@@ -6,11 +6,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -24,11 +21,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import com.aldikitta.jetmvvmmovie.R
 import com.aldikitta.jetmvvmmovie.data.datasource.remote.ApiURL
 import com.aldikitta.jetmvvmmovie.data.model.BaseModel
@@ -63,12 +58,14 @@ fun MovieDetail(navController: NavController, movieId: Int) {
             if (it is DataState.Success<MovieDetail>) {
                 Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
                     Image(
-                        painter = rememberAsyncImagePainter(ApiURL.IMAGE_URL.plus(it.data.poster_path)),
+                        painter = rememberAsyncImagePainter(ApiURL.IMAGE_URL.plus(it.data.backdrop_path)),
                         contentDescription = null,
-                        contentScale = ContentScale.Fit,
+                        contentScale = ContentScale.Crop,
                         modifier = Modifier
-                            .fillMaxSize()
-                            .height(300.dp)
+//                            .fillMaxSize()
+                            .height(250.dp)
+                            .padding(start = 5.dp, end = 5.dp)
+                            .clip(MaterialTheme.shapes.large)
                     )
                     Column(
                         modifier = Modifier
@@ -79,8 +76,8 @@ fun MovieDetail(navController: NavController, movieId: Int) {
                             text = it.data.title,
                             modifier = Modifier.padding(top = 10.dp),
                             overflow = TextOverflow.Ellipsis,
-                            maxLines = 1,
-                            style = MaterialTheme.typography.headlineLarge,
+                            maxLines = 2,
+                            style = MaterialTheme.typography.headlineMedium,
                             fontWeight = FontWeight.Bold
                         )
                         Row(
@@ -88,49 +85,65 @@ fun MovieDetail(navController: NavController, movieId: Int) {
                                 .fillMaxSize()
                                 .padding(bottom = 10.dp, top = 10.dp)
                         ) {
-                            Column(Modifier.weight(1f)) {
-                                Text(
-                                    text = it.data.original_language,
-                                    style = MaterialTheme.typography.headlineSmall
-                                )
+                            Column(
+                                Modifier.weight(1f),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
                                 Text(
                                     text = stringResource(R.string.language),
-                                    style = MaterialTheme.typography.titleLarge
+                                    fontWeight = FontWeight.Bold
+
+                                )
+                                Text(
+                                    text = it.data.original_language,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                            Column(
+                                Modifier.weight(1f),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.rating),
+                                    fontWeight = FontWeight.Bold
                                 )
 
-                            }
-                            Column(Modifier.weight(1f)) {
-                                Text(text = it.data.vote_average.toString())
-                                Text(text = stringResource(R.string.rating))
-                            }
-                            Column(Modifier.weight(1f)) {
                                 Text(
-                                    text = it.data.release_date
+                                    text = it.data.vote_average.toString(),
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                            Column(
+                                Modifier.weight(1f),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.release_date),
+                                    fontWeight = FontWeight.Bold
+
                                 )
                                 Text(
-                                    text = stringResource(R.string.release_date)
+                                    text = it.data.release_date,
+                                    fontWeight = FontWeight.Bold
                                 )
                             }
                         }
                         Text(
                             text = stringResource(R.string.description),
-//                            color = FontColor,
-//                            fontSize = 17.sp,
-                            fontWeight = FontWeight.SemiBold
+                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.titleLarge
                         )
                         Text(
                             text = it.data.overview,
-//                            color = secondaryFontColor,
-//                            fontSize = 13.sp,
                             modifier = Modifier.padding(bottom = 10.dp)
                         )
                         recommendedMovie.value?.let {
-                            if (it is DataState.Success<BaseModel>){
+                            if (it is DataState.Success<BaseModel>) {
                                 RecommendedMovie(navController, it.data.results)
                             }
                         }
                         artist.value?.let {
-                            if (it is DataState.Success<Artist>){
+                            if (it is DataState.Success<Artist>) {
                                 ArtistAndCrew(navController, it.data.cast)
                             }
                         }
@@ -153,20 +166,20 @@ fun RecommendedMovie(navController: NavController?, recommendedMovie: List<Movie
     Column(modifier = Modifier.padding(bottom = 10.dp)) {
         Text(
             text = stringResource(R.string.similar),
-            fontSize = 17.sp,
-            fontWeight = FontWeight.SemiBold
+            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.titleLarge
         )
-        LazyRow(modifier = Modifier.fillMaxHeight()) {
+        LazyRow {
             items(recommendedMovie, itemContent = { item ->
                 Image(
                     painter = rememberAsyncImagePainter(ApiURL.IMAGE_URL.plus(item.posterPath)),
                     contentDescription = null,
-                    contentScale = ContentScale.FillBounds,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .clip(shape = MaterialTheme.shapes.extraLarge)
-                        .padding(5.dp)
-                        .height(190.dp)
-                        .width(140.dp)
+                        .height(240.dp)
+                        .width(180.dp)
+                        .padding(end = 10.dp, top = 5.dp, bottom = 5.dp)
+                        .clip(shape = MaterialTheme.shapes.large)
                         .clickable {
                             navController?.navigate(
                                 NavigationScreen.MovieDetail.MOVIE_DETAIL.plus(
@@ -174,6 +187,7 @@ fun RecommendedMovie(navController: NavController?, recommendedMovie: List<Movie
                                 )
                             )
                         }
+
                 )
             })
         }
@@ -185,21 +199,21 @@ fun ArtistAndCrew(navController: NavController?, cast: List<Cast>) {
     Column(modifier = Modifier.padding(bottom = 10.dp)) {
         Text(
             text = stringResource(R.string.cast),
-            fontSize = 17.sp,
-            fontWeight = FontWeight.SemiBold
+            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.titleLarge
         )
-        LazyRow(modifier = Modifier.fillMaxHeight()) {
+        LazyRow {
             items(cast, itemContent = { item ->
-                Column() {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(
                         painter = rememberAsyncImagePainter(ApiURL.IMAGE_URL.plus(item.profilePath)),
                         contentDescription = null,
-                        contentScale = ContentScale.FillBounds,
+                        contentScale = ContentScale.Crop,
                         modifier = Modifier
-                            .clip(shape = MaterialTheme.shapes.extraLarge)
-                            .padding(5.dp)
-                            .height(190.dp)
-                            .width(140.dp)
+                            .height(240.dp)
+                            .width(180.dp)
+                            .padding(end = 10.dp, top = 5.dp, bottom = 5.dp)
+                            .clip(shape = MaterialTheme.shapes.large)
                             .clickable {
                                 navController?.navigate(
                                     NavigationScreen.ArtistDetail.ARTIST_DETAIL.plus(
@@ -208,7 +222,10 @@ fun ArtistAndCrew(navController: NavController?, cast: List<Cast>) {
                                 )
                             }
                     )
-                    Text(text = item.name)
+                    Text(
+                        text = item.name,
+                        modifier = Modifier.padding(end = 10.dp, top = 5.dp, bottom = 5.dp)
+                    )
                 }
 
             })

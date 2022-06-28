@@ -4,7 +4,6 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
 import com.aldikitta.jetmvvmmovie.data.model.BaseModel
 import com.aldikitta.jetmvvmmovie.data.model.artist.Artist
 import com.aldikitta.jetmvvmmovie.data.model.moviedetail.MovieDetail

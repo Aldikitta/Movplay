@@ -20,10 +20,4 @@ object NavigationScreen {
         const val ARTIST_ID = "artistId"
         const val ARTIST_DETAIL_PATH = "/{artistId}"
     }
-//   object NavItem{
-//       const val PROFILE = "profile"
-//       const val SETTINGS = "settings"
-//       const val PREFERENCES = "preferences"
-//       const val HELP = "help"
-//   }
 }

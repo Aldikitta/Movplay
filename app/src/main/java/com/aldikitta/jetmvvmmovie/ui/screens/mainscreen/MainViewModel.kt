@@ -28,6 +28,7 @@ class MainViewModel @Inject constructor(private val repo: MovieRepository) : Vie
             }.launchIn(viewModelScope)
         }
     }
+
     @ExperimentalCoroutinesApi
     @FlowPreview
     fun searchApi(searchKey: String) {
@@ -40,7 +41,7 @@ class MainViewModel @Inject constructor(private val repo: MovieRepository) : Vie
                 .flatMapLatest {
                     repo.search(it)
                 }.collect {
-                    if (it is DataState.Success){
+                    if (it is DataState.Success) {
                         it.data
                         Timber.e(" data ${it.data.totalPages}")
                     }

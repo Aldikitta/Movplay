@@ -71,7 +71,7 @@ fun HomeScreen(
             }
         }
     }
-    moviesItem.PagingLoadingState{
+    moviesItem.PagingLoadingState {
         progressBar.value = it
     }
 }

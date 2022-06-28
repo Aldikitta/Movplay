@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             JetMVVMMovieTheme {
-                    MainScreen()
+                MainScreen()
             }
         }
     }

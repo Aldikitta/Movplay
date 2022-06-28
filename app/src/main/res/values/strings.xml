@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JetMVVMMovie</string>
+    <string name="app_name">Movplay</string>
     <string name="app_title">Movie world</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
@@ -8,7 +8,7 @@
     <string name="language">Language</string>
     <string name="duration">Duration</string>
     <string name="movie_detail">Movie detail</string>
-    <string name="similar">Similar</string>
+    <string name="similar">Similar Movies</string>
     <string name="cast">Cast</string>
     <string name="screen_one">Screen one</string>
     <string name="screen_two">Screen two</string>

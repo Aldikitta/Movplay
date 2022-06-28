@@ -30,7 +30,6 @@ fun ArtistDetail(personId: Int) {
     LaunchedEffect(true) {
         artistDetailViewModel.artistDetail(personId)
     }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -57,13 +56,22 @@ fun ArtistDetail(personId: Int) {
                             fontSize = 26.sp,
                             fontWeight = FontWeight.Medium
                         )
-                        PersonalInfo(stringResource(com.aldikitta.jetmvvmmovie.R.string.know_for), it.data.knownForDepartment)
+                        PersonalInfo(
+                            stringResource(com.aldikitta.jetmvvmmovie.R.string.know_for),
+                            it.data.knownForDepartment
+                        )
                         PersonalInfo(
                             stringResource(com.aldikitta.jetmvvmmovie.R.string.gender),
                             it.data.gender.genderInString()
                         )
-                        PersonalInfo(stringResource(com.aldikitta.jetmvvmmovie.R.string.birth_day), it.data.birthday)
-                        PersonalInfo(stringResource(com.aldikitta.jetmvvmmovie.R.string.place_of_birth), it.data.placeOfBirth)
+                        PersonalInfo(
+                            stringResource(com.aldikitta.jetmvvmmovie.R.string.birth_day),
+                            it.data.birthday
+                        )
+                        PersonalInfo(
+                            stringResource(com.aldikitta.jetmvvmmovie.R.string.place_of_birth),
+                            it.data.placeOfBirth
+                        )
                     }
                 }
                 Text(

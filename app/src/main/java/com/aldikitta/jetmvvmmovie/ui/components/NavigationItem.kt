@@ -21,6 +21,7 @@ sealed class NavigationItem(
             )
         }, "Home"
     )
+
     object Login : NavigationItem(
         NavigationScreen.LOGIN, {
             Icon(

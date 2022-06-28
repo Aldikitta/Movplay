@@ -13,7 +13,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GenreTestingScreenViewModel @Inject constructor(private val repo: MovieRepository) : ViewModel() {
+class GenreTestingScreenViewModel @Inject constructor(private val repo: MovieRepository) :
+    ViewModel() {
     val genres: MutableState<DataState<Genres>?> = mutableStateOf(null)
 
     fun genreListTestingScreen() {
