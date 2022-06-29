@@ -42,8 +42,7 @@ Obtain your key from [TMDB API](https://www.themoviedb.org/documentation/api) an
 <img src="screenshots/splash.png" width="250"/>
 
 ### Home screen
-#### Movies
-<img src="screenshots/movies.png" width="250"/> <img src="screenshots/movie-details.png" width="250"/> <img src="screenshots/movie-cast.png" width="250"/>
+<img src="screenshot/homeScreen.png" width="250"/> <img src="screenshots/movie-details.png" width="250"/> <img src="screenshots/movie-cast.png" width="250"/>
 
 #### Tv Shows
 <img src="screenshots/series.png" width="250"/> <img src="screenshots/series-details.png" width="250"/> <img src="screenshots/series-cast.png" width="250"/>
