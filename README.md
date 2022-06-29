@@ -15,7 +15,7 @@ The app is built with the Model-View-ViewModel (MVVM) is its structural design p
 
 ## Tech Stack.
 - [Kotlin](https://developer.android.com/kotlin) - Kotlin is a programming language that can run on JVM. Google has announced Kotlin as one of its officially supported programming languages in Android Studio; and the Android community is migrating at a pace from Java to Kotlin.
-- [Material 3]([https://developer.android.com/kotlin](https://m3.material.io/foundations/accessible-design/overview)) - Latest Material design for android.
+- [Material 3](https://m3.material.io/foundations/accessible-design/overview) - Latest Material design for Android.
 - Jetpack components:
     - [Jetpack Compose](https://developer.android.com/jetpack/compose) - Jetpack Compose is Android’s modern toolkit for building native UI. It simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs.
     - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
