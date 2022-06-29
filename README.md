@@ -1,5 +1,5 @@
-<p align="center"><img src="screenshot/movColored.png" alt="Movplay" height="150px"></p>
-<p align="center"><img src="screenshot/summary.png" alt="Movplay" height="150px"></p>
+<p align="center"><img src="screenshot/movColored.png" alt="Movplay"</p>
+<p align="center"><img src="screenshot/summary.png" alt="Movplay"></p>
 
 
 # Movplay
