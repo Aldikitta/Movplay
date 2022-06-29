@@ -41,21 +41,16 @@ Obtain your key from [TMDB API](https://www.themoviedb.org/documentation/api) an
 ### Splash screen
 <img src="screenshots/splash.png" width="250"/>
 
-### Home screen
-<img src="screenshot/homeScreen.png" width="250"/> <img src="screenshots/movie-details.png" width="250"/> <img src="screenshots/movie-cast.png" width="250"/>
+|              Home Screen             |               Drawer Screen               |               Search Screen               |
+| :----------------------------------: | :---------------------------------------: | :---------------------------------------: |
+|    ![](screenshot/homeScreen.png)    |     ![](screenshot/drawerScreen.png)      |      ![](screenshot/searchScreen.png)     |
 
-#### Tv Shows
-<img src="screenshots/series.png" width="250"/> <img src="screenshots/series-details.png" width="250"/> <img src="screenshots/series-cast.png" width="250"/>
+|             Movie Detail             |               Movie Detail 2              |               Artist Detail               |
+| :----------------------------------: | :---------------------------------------: | :---------------------------------------: |
+|   ![](screenshot/movieDetail.png)    |     ![](screenshot/moviedetail2.png)      |      ![](screenshot/artistDetail.png)     |
 
-#### Placeholder
-<img src="screenshots/placeholder.png" width="250"/>
+|       Dark Theme + Dynamic Off       |          Dark Theme + Dynamic On          |          Light Theme + Dynamic On         |
+| :----------------------------------: | :---------------------------------------: | :---------------------------------------: |
+|  ![](screenshot/dynamicOffDark.png)  |     ![](screenshot/dynamicOnDark.png)     |    ![](screenshot/dynamicOnLight.png)     |
 
-### Search screen
-<img src="screenshots/search.png" width="250"/>
 
-### Favorites screen
-<img src="screenshots/favorites.png" width="250"/>
-
-### Account screen
-#### Account
-<img src="screenshots/account.png" width="250"/> <img src="screenshots/about.png" width="250"/> <img src="screenshots/get-in-touch.png" width="250"/>
