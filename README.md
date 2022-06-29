@@ -10,19 +10,11 @@ The app is built with the Model-View-ViewModel (MVVM) is its structural design p
 - Views display visual elements and controls on the screen. They’re typically subclasses of UIView.
 - View models transform model information into values that can be displayed on a view. They’re usually classes, so they can be passed around as references.
 
-## Setup Requirements
-Obtain your key from [TMDB API](https://www.themoviedb.org/documentation/api) and replace it in the `gradle.properties` file:
-
-```gradle
-    API_KEY = "API_KEY_VALUE"
-```
 
 ## Tech Stack.
 - [Kotlin](https://developer.android.com/kotlin) - Kotlin is a programming language that can run on JVM. Google has announced Kotlin as one of its officially supported programming languages in Android Studio; and the Android community is migrating at a pace from Java to Kotlin.
 - Jetpack components:
     - [Jetpack Compose](https://developer.android.com/jetpack/compose) - Jetpack Compose is Android’s modern toolkit for building native UI. It simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs.
-    - [Android KTX](https://developer.android.com/kotlin/ktx.html) - Android KTX is a set of Kotlin extensions that are included with Android Jetpack and other Android libraries. KTX extensions provide concise, idiomatic Kotlin to Jetpack, Android platform, and other APIs.
-    - [AndroidX](https://developer.android.com/jetpack/androidx) - Major improvement to the original Android [Support Library](https://developer.android.com/topic/libraries/support-library/index), which is no longer maintained.
     - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
     - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) -The ViewModel class is designed to store and manage UI-related data in a lifecycle conscious way.
     - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
@@ -38,8 +30,7 @@ Obtain your key from [TMDB API](https://www.themoviedb.org/documentation/api) an
 
 
 ## Demo
-### Splash screen
-<img src="screenshots/splash.png" width="250"/>
+<img src="screenshot/movgifcom.gif" width="250"/>
 
 |              Home Screen             |               Drawer Screen               |               Search Screen               |
 | :----------------------------------: | :---------------------------------------: | :---------------------------------------: |
