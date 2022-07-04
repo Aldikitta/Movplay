@@ -1,7 +1,7 @@
 package com.aldikitta.jetmvvmmovie.data.datasource.remote
 
 object ApiURL {
-    private const val API_KEY = "59cd6896d8432f9c69aed9b86b9c2931"
+    private const val API_KEY = "YOUR_API_KEY"
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val IMAGE_URL = "https://image.tmdb.org/t/p/w342"
     const val MOVIE_LIST = "movie/now_playing?api_key=$API_KEY&language=en-US"
