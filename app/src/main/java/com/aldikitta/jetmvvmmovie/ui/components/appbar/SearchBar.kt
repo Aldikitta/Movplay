@@ -16,7 +16,7 @@ import com.aldikitta.jetmvvmmovie.ui.screens.mainscreen.MainViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 
-@OptIn(FlowPreview::class)
+@OptIn(FlowPreview::class, ExperimentalMaterial3Api::class)
 @ExperimentalCoroutinesApi
 @Composable
 fun SearchBar(

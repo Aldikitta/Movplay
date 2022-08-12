@@ -9,5 +9,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NowPlayingViewModel @Inject constructor(movieRepository: MovieRepository) : ViewModel() {
-    val popularMovies = movieRepository.popularPagingDataSource().cachedIn(viewModelScope)
+    val popularMovies = movieRepository.nowPlayingPagingDataSource().cachedIn(viewModelScope)
 }
